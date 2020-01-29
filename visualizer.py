@@ -26,8 +26,8 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 DARK_GREEN = (0, 100, 0)
-FORREST_GREEN = (34, 139, 34)
-LIME_GREEN = (50, 205, 50)
+FORREST_GREEN = (15, 150, 15)
+LIME_GREEN = (75, 250, 50)
 YELLOW = (255, 255, 0)
 BLUE = (0,255,255)
 RED = (255, 0, 0)
@@ -209,7 +209,11 @@ def main():
                 row = (pos[1] - TITLE_OFFSET) // ( HEIGHT + MARGIN )
                 if column >= 0 and column <= 9 and row <= 9 and row >= 0:
                     if mode == 0:
-                        grid[row][column] = 1
+                        if grid[row][column] == 1:
+                            grid[row][column] = 0
+                        else:
+                            grid[row][column] = 1
+                        
                     if mode == 1:
                         #reset the old start point and set the new one
                         start_pos = (column, row)
@@ -277,11 +281,14 @@ def main():
         if closed_list is not None:
             for i in closed_list:
                 draw_square(LIME_GREEN, i.position[1], i.position[0])
+        if open_list is not None:
+            for i in open_list:
+                draw_square(FORREST_GREEN, i.position[1], i.position[0])
                
-        # draw the nodes being solved and their children
-        if current_solving_children is not None:
-            for i in current_solving_children:
-                draw_square(FORREST_GREEN, i[0], i[1])
+        # # draw the nodes being solved and their children
+        # if current_solving_children is not None:
+        #     for i in current_solving_children:
+        #         draw_square(FORREST_GREEN, i[0], i[1])
                 
         if current_solving_node is not None:
             draw_square(DARK_GREEN, current_solving_node[0], current_solving_node[1])
