@@ -36,7 +36,7 @@ RED = (255, 0, 0)
 
 start_pos = (0,0)
 end_pos = (9,9)
-# the mode can be settign the end point(1), setting the starting point(2), setting walls(3) and solving(4)
+# the mode can be setting the end point(1), setting the starting point(2), setting walls(3) and solving(4)
 mode = 1
 solve = False
 screen = None
@@ -137,7 +137,7 @@ def one_round():
         # Append
         children.append(new_node)
 
-    # Loop through children. Frst delete the children list
+    # Loop through children. First delete the children list
     current_solving_children = []
 
     for child in children:
@@ -269,7 +269,7 @@ def main():
                 WIDTH,
                 HEIGHT])
 
-        #draw the text on each solection button
+        #draw the text on each selection button
         draw_text('WALL', RED, 35 , 35)
         draw_text('START', RED, 95 , 35)
         draw_text('END', RED, 155 , 35)
